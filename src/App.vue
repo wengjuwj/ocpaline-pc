@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <a-button type="primary">Button></a-button>
+    <el-button>默认按钮</el-button>
     <img alt="Vue logo" src="./assets/logo.png">
     <Test></Test>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->

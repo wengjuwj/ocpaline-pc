@@ -1,5 +1,5 @@
 import axios from "axios";
-import { notification } from "ant-design-vue";
+// import { notification } from "ant-design-vue";
 import { VueAxios } from './axios'
 // import { config } from "vue/types/umd";
 // import { response } from "express";
@@ -17,17 +17,17 @@ const errorHandler=(error)=>{
     // 从localStorage 获取token
     // const token = storage.get(ACCESS_TOKEN)
     if(error.response.status===403){
-      notification.error({
-        message:'Forbidden',
-        description:data.message
-      })
+      // notification.error({
+      //   message:'Forbidden',
+      //   description:data.message
+      // })
     }
     // 401
     if(error.response.status===401&&!(data.result&&data.result.isLogin)){
-      notification.error({
-        message:'Unauthorized',
-        description:'Authorization verification failed'
-      })
+      // notification.error({
+      //   message:'Unauthorized',
+      //   description:'Authorization verification failed'
+      // })
       // if (token) {
       //   store.dispatch('Logout').then(() => {
       //     setTimeout(() => {
