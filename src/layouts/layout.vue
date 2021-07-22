@@ -28,6 +28,6 @@ export default {
 }
 </script>
 
-<style scope>
+<style lang="less" scoped>
   .pc-layout{}
 </style>

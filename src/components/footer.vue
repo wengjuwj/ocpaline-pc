@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style lang="less" scope>
+<style lang="less" scoped>
   .footer-contain{
     height: 248px;
     background: url('~@/assets/footbanner.png') no-repeat;

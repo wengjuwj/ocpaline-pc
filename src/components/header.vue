@@ -85,7 +85,7 @@ export default {
 }
 </script>
 
-<style lang="less" scope>
+<style lang="less" scoped>
   .pc-header-top{
     display: flex;
     justify-content: space-between;

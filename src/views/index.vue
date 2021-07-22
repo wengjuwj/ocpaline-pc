@@ -175,7 +175,7 @@ export default {
 }
 </script>
 
-<style lang="less" scope>
+<style lang="less" scoped>
   .select-wrap {
     margin-top: 20px;
     margin-bottom: 20px;
