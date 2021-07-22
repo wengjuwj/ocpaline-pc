@@ -1,32 +1,14 @@
 <template>
   <div id="app">
-    <el-button>默认按钮</el-button>
-    <img alt="Vue logo" src="./assets/logo.png">
-    <Test></Test>
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <router-view/>
   </div>
 </template>
-
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-import Test from './view/test.vue'
-
 export default {
-  name: 'App',
-  components: {
-    // HelloWorld
-    Test
-  }
+  name: 'App'
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

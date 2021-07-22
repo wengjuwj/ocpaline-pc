@@ -1,12 +1,12 @@
 <template>
   <div>
-    <span>ggg</span>
+    <span>咨讯</span>
   </div>
 </template>
 
 <script>
 export default {
-    name:'live',
+    name:'index',
     components:{
       
     },

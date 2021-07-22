@@ -19,12 +19,7 @@
     <!-- tab头部 -->
     <div class="pc-header-tab">
       <div class="pc-contain tab-wrap">
-          <div class="tab-wrap-item">首页</div>
-          <div class="tab-wrap-item">重磅专栏</div>
-          <div class="tab-wrap-item">应用新知</div>
-          <div class="tab-wrap-item">行业资讯</div>
-          <div class="tab-wrap-item">录播</div>
-          <div class="tab-wrap-item">直播</div>
+          <div class="tab-wrap-item" :class="[targetIndex==index?'active':'']"  @click="toLink(item.path,index)" v-for="(item,index) in talist" :key="index">{{item.text}}</div>
       </div>
     </div>
  </div>
@@ -37,10 +32,55 @@ export default {
   },
   data(){
     return{
+      talist:[
+        {
+          name:'index',
+          text:'首页',
+          path:'/index',
+        },
+        {
+          name:'special',
+          text:'重磅专栏',
+          path:'/special',
+        },
+        {
+          name:'newKnowledge',
+          text:'应用新知',
+          path:'/newKnowledge',
+        },
+        {
+          name:'news',
+          text:'行业资讯',
+          path:'/news',
+        },
+        {
+          name:'recorded',
+          text:'录播',
+          path:'/recorded',
+        },
+        {
+          name:'direact',
+          text:'直播',
+          path:'/direact',
+        }
+      ],
+      targetIndex:null
+    }
+  },
+  created(){
+    if(sessionStorage.getItem('page')){
+      this.targetIndex=sessionStorage.getItem('page')
     }
   },
   methods:{
-
+    toLink(path,index){
+      this.targetIndex=index;
+      sessionStorage.setItem('page',index)
+      this.$router.push(path)
+    }
+  },
+  watch:{
+    
   }
 }
 </script>
@@ -49,6 +89,7 @@ export default {
   .pc-header-top{
     display: flex;
     justify-content: space-between;
+    font-size: 16px;
     .pc-header-logo{
       max-width: 258px;
       padding: 10px 0;
@@ -73,6 +114,7 @@ export default {
   .pc-header-tab{
     width: 100%;
     background: #1b97ee;
+    font-size: 16px;
     .tab-wrap{
       height: 58px;
       display: flex;
@@ -86,7 +128,7 @@ export default {
         height: 100%;
         color: #fff;
         cursor: pointer;
-        &:hover{
+        &:hover,&.active{
           background: #1678d3;
         }
       }

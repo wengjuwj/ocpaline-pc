@@ -4,8 +4,7 @@ import ElementUI from 'element-ui';
 import { VueAxios } from './utils/request'
 import 'element-ui/lib/theme-chalk/index.css';
 import '@/styles/common.less';
-// import App from './App.vue'
-import layout from '@/layouts/layout'
+import App from './App.vue'
 
 // mock
 // WARNING: `mockjs` NOT SUPPORT `IE` PLEASE DO NOT USE IN `production` ENV.
@@ -19,5 +18,5 @@ Vue.use(VueAxios)
 
 new Vue({
   router,
-  render: h => h(layout)
+  render: h => h(App)
 }).$mount('#app')
