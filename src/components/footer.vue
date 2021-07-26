@@ -17,7 +17,7 @@
           <div class="footer-contain-left">
             <!-- link box -->
             <div class="link-box">
-                <span class="link-item" v-for="(item,index) in footerLink" :key="index"> 
+                <span class="link-item" v-for="(item,index) in footerLink" :key="index" @click="link(item)"> 
                   <span>{{item.text}}</span>
                 </span>
             </div>
@@ -53,17 +53,19 @@ export default {
   data(){
     return{
       footerLink:[
-        {text:"首页",link:""},
-        {text:"重磅专栏",link:""},
-        {text:"应用新知",link:""},
-        {text:"行业资讯",link:""},
-        {text:"录播",link:""},
-        {text:"直播",link:""},
+        {text:"首页",link:"/index"},
+        {text:"重磅专栏",link:"/special"},
+        {text:"应用新知",link:"/newKnowledge"},
+        {text:"行业资讯",link:"/news"},
+        {text:"录播",link:"/recorded"},
+        {text:"直播",link:"/direact"},
       ]
     }
   },
   methods:{
-
+    link(data){
+      this.$router.push(data.link)
+    }
   }
 }
 </script>
