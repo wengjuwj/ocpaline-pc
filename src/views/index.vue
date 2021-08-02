@@ -282,6 +282,7 @@ export default {
         .card-selfdefine{
           display: flex;
           padding: 15px;
+          align-items: center;
           .card-left{
             width: 38%;
             height: 126px;
