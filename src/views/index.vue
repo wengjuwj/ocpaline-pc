@@ -105,6 +105,7 @@
 </template>
 
 <script>
+import {getClassification} from '@/api/index'
 export default {
     name:'index',
     components:{
@@ -165,11 +166,16 @@ export default {
       }
     },
     created(){
-      
+      this.getList()
     },
     methods:{
       select(index){
         this.selectFlag=index
+      },
+      getList(){
+        getClassification({}).then(response => {
+          console.log('response', response)
+        })
       }
     }
 }
