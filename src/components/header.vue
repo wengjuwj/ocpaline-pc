@@ -7,17 +7,22 @@
           :src="require('@/assets/topLog.png')"
           fit="contian"></el-image>
         </div>
-        <!-- 右边 -->
-        <div class="pc-header-right">
-            <!--  -->
-            <div class="pc-header-hotline">24小时服务热线: 159 0219 6474</div>
-            <!--  -->
-            <div class="pc-header-login">登录</div>
+        <div class="pc-header-between">
+          <el-image
+          :src="require('@/assets/header_title.png')"
+          fit="contian"></el-image>
         </div>
+        <!-- 右边 -->
+        <!-- <div class="pc-header-right">
+            
+            <div class="pc-header-hotline">24小时服务热线: 159 0219 6474</div>
+           
+            <div class="pc-header-login">登录</div>
+        </div> -->
       </div>
     </div>
     <!-- tab头部 -->
-    <div class="pc-header-tab">
+    <div class="pc-header-tab" style="display:none">
       <div class="pc-contain tab-wrap">
           <div class="tab-wrap-item" :class="[targetIndex==index?'active':'']"  @click="toLink(item.path,index)" v-for="(item,index) in talist" :key="index">{{item.text}}</div>
       </div>
@@ -86,16 +91,25 @@ export default {
 </script>
 
 <style lang="less" scoped>
+  .pc-full-contain{
+    background: url('~@/assets/header_bg.png') no-repeat;
+    background-size: 100% 100%;
+  }
   .pc-header-top{
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    // justify-content: space-between;
     font-size: 16px;
     .pc-header-logo{
-      max-width: 258px;
+      max-width: 185px;
       padding: 10px 0;
       .el-image{
         max-width: 100%;
       }
+    }
+    .pc-header-between{
+      max-width: 50%;
+      margin-left: 25px;
     }
     .pc-header-right{
       display: flex;

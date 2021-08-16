@@ -73,8 +73,8 @@ export default {
 <style lang="less" scoped>
   .footer-contain{
     height: 248px;
-    background: url('~@/assets/footbanner.png') no-repeat;
-    background-size: 100% 100%;
+    background: #465D71;
+    // background-size: 100% 100%;
     .pc-footer-top{
       padding: 10px 0;
       display: flex;

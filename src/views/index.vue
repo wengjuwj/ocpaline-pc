@@ -1,7 +1,14 @@
 <template>
   <div class="pc-full-contain">
-     <!-- 大图部分 -->
-     <div class="img-wrapper">
+    <!-- 大图部分 -->
+    <div class="img-big-wrapper">
+      <img src="" alt="">
+      <div class="login-box">
+        <i class="icon el-icon-user" />登录
+      </div>
+    </div>
+     <!-- 走马灯部分 -->
+     <!-- <div class="img-wrapper">
         <el-carousel>
           <el-carousel-item v-for="item in 4" :key="item">
              <el-image
@@ -9,7 +16,7 @@
               fit="contian"></el-image>
           </el-carousel-item>
         </el-carousel>
-     </div>
+     </div> -->
      <!-- 筛选部分 -->
      <div class="select-wrap pc-contain">
         <div class="select-area">
@@ -24,8 +31,10 @@
 
             </div>
         </div>
+        <BoxCardCol></BoxCardCol>
+        <BoxCardLine></BoxCardLine>
         <!--卡片部分  -->
-        <div class="classification-area">
+        <!-- <div class="classification-area">
             <div class="classification-title">
               <div>今日直播</div>
               <div class="more">更多内容>></div>
@@ -50,8 +59,8 @@
                 </el-card>
                </div>
             </div>
-        </div>
-         <div class="classification-area">
+        </div> -->
+         <!-- <div class="classification-area">
             <div class="classification-title">
               <div>往期回播</div>
               <div class="more">更多内容>></div>
@@ -61,9 +70,9 @@
                 <el-card :body-style="{ padding: '0px' }">
                   <div class="img-wrap">
                     <img :src="require('@/assets/card1.png')" class="image">
-                    <!-- <div class="mark" >
+                    <div class="mark" >
                         <div>正在直播</div>
-                    </div> -->
+                    </div>
                   </div>
                   
                   <div class="content-wrap">
@@ -76,9 +85,9 @@
                 </el-card>
                </div>
             </div>
-        </div>
+        </div> -->
         <!-- 直播预告 -->
-         <div class="advance">
+         <!-- <div class="advance">
             <div class="classification-title">
               <div>直播预告</div>
               <div class="more">更多内容>></div>
@@ -99,16 +108,21 @@
                 </el-card>
                </div>
             </div>
-        </div>
+        </div> -->
      </div>
   </div>
 </template>
 
 <script>
+import {getClassification} from '@/api/index'
+import BoxCardCol from '@/components/BoxCardCol'
+import BoxCardLine from '@/components/BoxCardLine'
+
 export default {
     name:'index',
     components:{
-      
+      BoxCardCol,
+      BoxCardLine
     },
     data(){
       return{
@@ -165,17 +179,47 @@ export default {
       }
     },
     created(){
-      
+      this.getList()
     },
     methods:{
       select(index){
         this.selectFlag=index
+      },
+      getList(){
+        getClassification({}).then(response => {
+          console.log('response', response)
+        })
       }
     }
 }
 </script>
 
 <style lang="less" scoped>
+.img-big-wrapper{
+  width: 100%;
+  height: 800px;
+  position: relative;
+  box-sizing: border-box;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  .login-box{
+    position: absolute;
+    top: 32px;
+    right: 48px;
+    padding: 9px 24px;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    color: #fff;
+    .icon{
+      padding-right: 5px;
+      font-size: 18px;
+    }
+  }
+}
   .select-wrap {
     margin-top: 20px;
     margin-bottom: 20px;

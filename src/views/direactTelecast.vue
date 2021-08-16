@@ -2,7 +2,52 @@
   <div class="pc-full-contain">
     <!-- 直播视频部分 -->
     <div class="video-wrapper">
-      
+      <div class="pc-contain video-content">
+        <!-- 左边 -->
+        <div class="video-left">
+           <div class="video-left-title">
+              <div class="title-info">
+                <div class="title-text">液术大讲堂-第七十七期</div>
+                <div class="title-list">
+                  <div class="list-item">
+                    <label>直播间：</label><span class="live-title">古麻今醉直播间</span>
+                  </div>
+                  <div class="list-item">
+                    <label>直播时间：</label><span>2021年07月2日</span>
+                  </div>
+                  <div class="list-item">
+                    <span>2.36万人浏览</span>
+                  </div>
+                </div>
+              </div>
+              <div class="title-btns">
+                  <div class="btn-item">关注</div>
+              </div>
+           </div>
+           <!-- 视频部分 -->
+           <div class="telelive-video">
+              <video src="" width="100%" height="100%"></video>
+           </div>
+        </div>
+        <!-- 右边 -->
+        <div class="video-right">
+          <div class="video-right-title">
+              互动区
+          </div>
+          <div class="video-right-content">
+            <!-- 未登录状态 -->
+            <div class="video-login-wrap">
+                <div class="prompt"><span class="scan-btn">扫码登录</span>后发言</div>
+                <div class="prompt">与讲师互动交流</div>
+                <div class="code">
+                  <el-image
+                  :src="require('@/assets/code.png')"
+                  fit="contian"></el-image>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- 选项卡切换部分 -->
     <div class="pc-contain">
@@ -85,8 +130,96 @@ export default {
 <style lang="less" scoped>
   .video-wrapper{
     width: 100%;
-    height: 670px;
     background: #000;
+    .video-content{
+      display: flex;
+      padding: 40px 50px 20px 50px;
+    }
+    // 视频区
+    .video-left{
+      flex: 1;
+      height: 600px;
+      background: #2D2D2D;
+      .video-left-title{
+        padding: 12px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .title-info{
+          .title-text{
+            color: #fff;
+            font-size: 18px;
+          }
+          .title-list{
+              display: flex;
+              margin-top: 10px;
+              color: #666;
+              .list-item{
+                &:first-child{
+                  margin-left: 0;
+                }
+                margin-left: 30px;
+              }
+              .live-title{
+                color:#FF742F ;
+              }
+
+            }
+        }
+        .title-btns{
+          .btn-item{
+            padding: 5px 24px;
+            font-size: 18px;
+            color: #fff;
+            background: #FF742F;
+            border-radius: 5px;
+          }
+        }
+      }
+      // 视频部分
+      .telelive-video{
+        width: 100%;
+        height: calc(600px-77px);
+        .video{
+          width: 100%;
+          height: 100%;
+        }
+      }
+   
+    }
+    // 互动区
+    .video-right{
+      width: 300px;
+      height: 600px;
+      margin-left: 20px;
+      background: #2D2D2D;
+      .video-right-title{
+        text-align: center;
+        padding: 10px 0;
+        width: 100%;
+        background: #333333;
+        color: #DDD;
+      }
+      .video-right-content{
+        width: 100%;
+        height: calc(600px-39px);
+        .video-login-wrap{
+          margin-top: 120px;
+          text-align: center;
+          .prompt{
+            color: #DDD;
+            margin-bottom: 6px;
+            .scan-btn{
+              color: #FF742F;
+            }
+          }
+          .code{
+            margin-top: 50px;
+          }
+        }
+      }
+
+    }
   }
   .tabs-box{
     padding: 10px 0;

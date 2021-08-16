@@ -1,6 +1,6 @@
 <template>
   <div class="pc-layout">
-      <Header></Header>
+      <Header v-if="$route.meta.showheader"></Header>
       <div class="container">
         <router-view></router-view>
       </div>
@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Header from '@/components/header'
-import Footer from '@/components/footer'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 export default {
   name:"layout",
   components:{
@@ -29,5 +29,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  .pc-layout{}
+  .pc-layout{
+    
+  }
 </style>

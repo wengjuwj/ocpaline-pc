@@ -7,7 +7,7 @@ import { VueAxios } from './axios'
 //创建axios实例
 const request=axios.create({
   // API请求的默认前缀
-  baseURL:process.env.VUE_APP_API_BASE_URL,
+  baseURL:process.env.VUE_APP_BASE_API,
   timeout:6000//请求超时时间
 })
 // 异常拦截处理器

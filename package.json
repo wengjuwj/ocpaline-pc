@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "preview": "node bulid/index.js --preview"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -14,7 +15,7 @@
     "element-ui": "^2.15.3",
     "less": "^2.7.3",
     "less-loader": "^5.0.0",
-    "mockjs2": "^1.0.8",
+    "mockjs": "1.0.1-beta3",
     "vue": "^2.6.11",
     "vue-router": "^3.5.2",
     "vuex": "^3.6.2"
@@ -27,7 +28,9 @@
     "babel-plugin-component": "^1.1.1",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "runjs": "4.3.2",
+    "chalk": "2.4.2"
   },
   "eslintConfig": {
     "root": true,
