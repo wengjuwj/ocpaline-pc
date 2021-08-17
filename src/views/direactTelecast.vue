@@ -35,15 +35,98 @@
               互动区
           </div>
           <div class="video-right-content">
-            <!-- 未登录状态 -->
-            <div class="video-login-wrap">
-                <div class="prompt"><span class="scan-btn">扫码登录</span>后发言</div>
-                <div class="prompt">与讲师互动交流</div>
-                <div class="code">
+            <!-- 未登录,未开播 /已登录，未开播-->
+            <div class="video-notlogin-wrap" style="display:none">
+                <!-- <div class="prompt"><span class="scan-btn">扫码登录</span>后发言</div>
+                <div class="prompt">与讲师互动交流</div> -->
+                <div class="img-wrap">
                   <el-image
-                  :src="require('@/assets/code.png')"
+                  class="code-img"
+                  :src="require('@/assets/novideo.png')"
                   fit="contian"></el-image>
+                  <p class="info-text">暂未开播哦~</p>
                 </div>
+            </div>
+            <!-- 未登录，已开播/已登录，已开播 -->
+            <div class="video-login-wrap"  >
+              <!-- 互动区 -->
+              <div class="dialog-area">
+                <div class="dialog-content">
+                  <!--  -->
+                  <div class="dialog-item">
+                    <div class="dialog-role">
+                      <img class="dialog-role-avator" src="" alt="">
+                      <div class="dialog-role-identity">讲师</div>
+                      <div class="dialog-role-username">邵主任</div>
+                    </div>
+                    <!--  -->
+                    <div class="dialog-text">
+                      <div class="dialog-content">老师讲的非常好！</div>
+                    </div>
+                  </div>
+                  <p class="message">2021-07-22 14:12</p>
+                   <div class="dialog-item">
+                    <div class="dialog-role">
+                      <img class="dialog-role-avator" src="" alt="">
+                      <!-- <div class="dialog-role-identity">讲师</div> -->
+                      <div class="dialog-role-username">你好你好</div>
+                    </div>
+                    <!--  -->
+                    <div class="dialog-text">
+                      <div class="dialog-content">老师讲的非常好！</div>
+                    </div>
+                  </div>
+                   <div class="dialog-item">
+                    <div class="dialog-role">
+                      <img class="dialog-role-avator" src="" alt="">
+                      <!-- <div class="dialog-role-identity">讲师</div> -->
+                      <div class="dialog-role-username">这么</div>
+                    </div>
+                    <!--  -->
+                    <div class="dialog-text">
+                      <div class="dialog-content">对对</div>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="dialog-item dialog-right">
+                    <!--  -->
+                    <div class="dialog-text">
+                      <div class="dialog-content">对对</div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+              <!-- 底部操作区 -->
+              <div class="bottom-operation">
+                  <div class="scan-code" style="display:none">
+                      <div class="left-prompt">
+                        <div class="prompt"><span class="scan-btn">扫码登录</span>后发言</div>
+                        <div class="prompt">与讲师互动交流</div>
+                      </div>
+                      <div class="scan-img">
+                        <el-image
+                        class="code-img"
+                        :src="require('@/assets/code.png')"
+                        fit="contian"></el-image>
+                      </div>
+                  </div>
+                  <!-- 输入框 -->
+                  <div class="input-box">
+                    <div class="input-content">
+                      <el-input v-model="input" placeholder="我也来参与一下互动"></el-input>
+                    </div>
+                    <div class="operation">
+                        <div class="operation-item">
+                          <i class="icon el-icon-picture-outline-round"></i>
+                        </div>
+                        <!--  -->
+                        <div class="operation-item">
+                          <div class="send-btn">发送</div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
             </div>
           </div>
         </div>
@@ -66,7 +149,7 @@
                   </div>
               </div>
               <!-- 大图 -->
-              <div class="detail-img">
+              <dniv class="detail-img">
                   <img src="" alt="">
               </div>
           </el-tab-pane>
@@ -117,7 +200,8 @@ export default {
     },
     data(){
       return{
-        activeName:'first'
+        activeName:'first',
+        input:''
 
       }
     },
@@ -202,19 +286,169 @@ export default {
       }
       .video-right-content{
         width: 100%;
-        height: calc(600px-39px);
-        .video-login-wrap{
+        padding-top:1px ;
+        height: calc(600px-40px);
+        // 未开播
+        .video-notlogin-wrap{
           margin-top: 120px;
           text-align: center;
-          .prompt{
-            color: #DDD;
-            margin-bottom: 6px;
-            .scan-btn{
-              color: #FF742F;
+          // .prompt{
+          //   color: #DDD;
+          //   margin-bottom: 6px;
+          //   .scan-btn{
+          //     color: #FF742F;
+          //   }
+          // }
+          .img-wrap{
+            margin-top: 50px;
+            .code-img{
+                max-width: 170px;
+              }
+              .info-text{
+                color: #999;
+                font-size: 16px;
+              }
+          } 
+        }
+        // 已开播
+        .video-login-wrap{
+          width: 100%;
+          height: 100%;
+          position: relative;
+          // 互动区
+          .dialog-area{
+            width: 100%;
+            height:460px;
+            overflow-y: scroll;
+            // border: 1px solid blue;
+            .dialog-content{
+              padding: 0 10px;
+            }
+            .dialog-item{
+              padding: 15px 0;
+              .dialog-role{
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                .dialog-role-avator{
+                  width: 28px;
+                  height: 28px;
+                  border-radius: 50%;
+                }
+                .dialog-role-identity{
+                  padding: 0 12px 2px 12px;
+                  color: #fff;
+                  background: #FF742F;
+                  font-size: 12px;
+                  border-radius: 3px;
+                  margin-left: 10px;
+                }
+                .dialog-role-username{
+                  margin-left: 10px;
+                  color: #999;
+                  font-size: 14px;
+                }
+              }
+              // 
+              .dialog-text{
+                padding-left: 38px;
+                display: flex;
+                justify-content: flex-start;
+                .dialog-content{
+                  padding: 5px 14px;
+                  background: #000;
+                  border-radius: 5px;
+                  color: #fff;
+                  display: inline-block;
+                }
+              }
+              &.dialog-right{
+                .dialog-text{
+                  justify-content: flex-end;
+                }
+              }
+            }
+            // 
+            .message{
+              text-align: center;
+              color: #999;
+              font-size: 12px;
+              margin: 0;
+            }
+            /*滚动条样式*/
+            &::-webkit-scrollbar {
+                width: 4px;    
+                /*height: 4px;*/
+            }
+            &::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                -webkit-box-shadow: inset 0 0 5px rgba(102,102,102,1);
+                background: rgba(102,102,102,1);
+            }
+            &::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 5px rgba(102,102,102,1);
+                border-radius: 0;
+                background: rgba(0,0,0,0.1);
+
             }
           }
-          .code{
-            margin-top: 50px;
+          .bottom-operation{
+            width: 100%;
+            height: 100px;
+            position: absolute;
+            bottom: 0;
+            background: #333333;
+            .scan-code{
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              .left-prompt{
+                .prompt{
+                  color: #DDD;
+                  margin-bottom: 6px;
+                  .scan-btn{
+                    color: #FF742F;
+                  }
+                }
+              }
+              .scan-img{
+                margin-left: 20px;
+                .code-img{
+                  max-width: 70px;
+                }
+              }
+            }
+            // 输入框部分
+            .input-box{
+              width: 100%;
+              height: 100%;
+              /deep/.el-input{
+                .el-input__inner{
+                  background-color: transparent;
+                  border: none;
+                }
+              }
+            }
+            .operation{
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+              .operation-item{
+                margin-right: 18px;
+                .icon{
+                  color: #999;
+                  font-size: 20px;
+                }
+                .send-btn{
+                  padding:  2px 12px 5px 12px;
+                  color: #fff;
+                  background: #666;
+                  border-radius: 3px;
+                }
+              }
+            }
           }
         }
       }
