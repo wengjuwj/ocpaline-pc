@@ -149,7 +149,7 @@
                   </div>
               </div>
               <!-- 大图 -->
-              <dniv class="detail-img">
+              <div class="detail-img">
                   <img src="" alt="">
               </div>
           </el-tab-pane>
