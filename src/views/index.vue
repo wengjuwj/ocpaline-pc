@@ -23,92 +23,26 @@
             <div class="select-item">
               <div class="label">全部：</div>
               <div class="select-item-content" 
-              @click="select(selectIndex)"
-              :class="[selectIndex==selectFlag?'active':'']"  
-               v-for="(selectItem,selectIndex) in selectData" :key="selectIndex">
-                {{selectItem.name}}
+              @click="select(selectIndex1,1)"
+              :class="[selectIndex1==selectFlag?'active':'']"  
+               v-for="(selectItem1,selectIndex1) in selectData" :key="selectIndex1">
+                {{selectItem1.name}}
               </div>
-
             </div>
         </div>
-        <BoxCardCol></BoxCardCol>
-        <BoxCardLine></BoxCardLine>
-        <!--卡片部分  -->
-        <!-- <div class="classification-area">
-            <div class="classification-title">
-              <div>今日直播</div>
-              <div class="more">更多内容>></div>
+        <div class="select-area">
+            <div class="select-item">
+              <div class="label">全部：</div>
+              <div class="select-item-content" 
+              @click="select(selectIndex2,2)"
+              :class="[selectIndex2==selectFlagSeconed?'active':'']"  
+               v-for="(selectItem2,selectIndex2) in selectedSeconed" :key="selectIndex2">
+                {{selectItem2.name}}
+              </div>
             </div>
-            <div class="card-area">
-               <div class="card-item" v-for="c in 8" :key="c">
-                <el-card :body-style="{ padding: '0px' }">
-                  <div class="img-wrap">
-                    <img :src="require('@/assets/card.png')" class="image">
-                    <div class="mark" v-if="c==1">
-                        <div>正在直播</div>
-                    </div>
-                  </div>
-                  
-                  <div class="content-wrap">
-                    <span class="title">慢性咳嗽与呼吸道感染诊治高峰论坛</span>
-                    <div class="bottom clearfix">
-                        <div>主讲人：<span>111</span><span>222</span></div>
-                        <div>时间：<span>2021-07-16-12:30</span></div>
-                    </div>
-                  </div>
-                </el-card>
-               </div>
-            </div>
-        </div> -->
-         <!-- <div class="classification-area">
-            <div class="classification-title">
-              <div>往期回播</div>
-              <div class="more">更多内容>></div>
-            </div>
-            <div class="card-area">
-               <div class="card-item" v-for="c in 8" :key="c">
-                <el-card :body-style="{ padding: '0px' }">
-                  <div class="img-wrap">
-                    <img :src="require('@/assets/card1.png')" class="image">
-                    <div class="mark" >
-                        <div>正在直播</div>
-                    </div>
-                  </div>
-                  
-                  <div class="content-wrap">
-                    <span class="title">慢性咳嗽与呼吸道感染诊治高峰论坛</span>
-                    <div class="bottom clearfix">
-                        <div>主讲人：<span>111</span><span>222</span></div>
-                        <div>时间：<span>2021-07-16-12:30</span></div>
-                    </div>
-                  </div>
-                </el-card>
-               </div>
-            </div>
-        </div> -->
-        <!-- 直播预告 -->
-         <!-- <div class="advance">
-            <div class="classification-title">
-              <div>直播预告</div>
-              <div class="more">更多内容>></div>
-            </div>
-            <div class="card-area">
-               <div class="card-item" v-for="c in 5" :key="c">
-                <el-card :body-style="{ padding: '0px' }">
-                   <div class="card-selfdefine"> 
-                      <div class="card-left">
-                        <img alt="" :src="require('@/assets/card1.png')">
-                      </div>
-                      <div class="card-right">
-                         <div class="right-title">针对治好强直性脊柱炎的关键点剖析</div>
-                          <div class="info">主讲人：<span>上海市第五人民医院 廖朱权主任</span></div>
-                          <div class="info">时间：<span>2021-07-21-12:30</span></div>
-                      </div>
-                   </div>
-                </el-card>
-               </div>
-            </div>
-        </div> -->
+        </div>
+        <BoxCardLine title="近期直播"></BoxCardLine>
+        <BoxCardCol title="往期回看"></BoxCardCol>
      </div>
   </div>
 </template>
@@ -127,54 +61,29 @@ export default {
     data(){
       return{
         selectData:[
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
-          {name:'外科',value:'',id:''},
+          {name:'外科',value:'',id:'',seconed:[
+            {name:'二级1',value:'',id:''},
+            {name:'二级2',value:'',id:''},
+            {name:'二级3',value:'',id:''},
+            ]
+          },
+          {name:'液术大讲堂',value:'',id:'',seconed:[
+            {name:'二级1',value:'',id:''},
+            {name:'二级2',value:'',id:''},
+            {name:'二级3',value:'',id:''},
+            ]
+          },
+          {name:'恒瑞国际会议',value:'',id:'',seconed:[
+            {name:'二级1',value:'',id:''},
+            {name:'二级2',value:'',id:''},
+            {name:'二级3',value:'',id:''},
+            ]
+          },
         ],
-        cardData:[
-         
-        ],
-        selectFlag:null
+        selectedSeconed:[],
+        cardData:[],
+        selectFlag:null,
+        selectFlagSeconed:null
 
       }
     },
@@ -182,8 +91,14 @@ export default {
       this.getList()
     },
     methods:{
-      select(index){
-        this.selectFlag=index
+      select(index,level){
+        if(level==1){
+          this.selectFlag=index
+          this.selectedSeconed=this.selectData[this.selectFlag].seconed
+        }
+        if(level==2){
+          this.selectFlagSeconed=index
+        }
       },
       getList(){
         getClassification({}).then(response => {
@@ -227,6 +142,12 @@ export default {
       border: 1px solid #E3ECF3;
       padding: 25px 0;
       margin-bottom: 20px;
+      &:first-child{
+        margin-bottom: 0;
+      }
+      &:not(:first-child){
+        border-top: none;
+      }
       .select-item{
         display: flex;
         flex-wrap: wrap;

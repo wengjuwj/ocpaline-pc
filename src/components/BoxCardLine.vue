@@ -1,19 +1,27 @@
 <template>
   <div class="advance">
       <div class="classification-title">
-        <div>直播预告</div>
-        <div class="more">更多内容>></div>
+        <div>{{title}}</div>
+        <div class="more">{{more}}</div>
       </div>
       <div class="card-area">
-          <div class="card-item" v-for="c in 5" :key="c">
+          <div class="card-item" v-for="(item,index) in cardList" :key="index">
           <el-card :body-style="{ padding: '0px' }">
               <div class="card-selfdefine"> 
                 <div class="card-left">
                   <img alt="" :src="require('@/assets/card1.png')">
+                  <div class="mark" v-if="c==1">
+                      <div>今日直播</div>
+                  </div>
                 </div>
                 <div class="card-right">
                     <div class="right-title">针对治好强直性脊柱炎的关键点剖析</div>
-                    <div class="info">主讲人：<span>上海市第五人民医院 廖朱权主任</span></div>
+                    <div class="tags-content">
+                      <span>专家</span>
+                      <span>宣讲</span>
+                      <span>手术</span>
+                    </div>
+                    <!-- <div class="info">主讲人：<span>上海市第五人民医院 廖朱权主任</span></div> -->
                     <div class="info">时间：<span>2021-07-21-12:30</span></div>
                 </div>
               </div>
@@ -37,12 +45,12 @@ export default {
     },
     more: {
       type: String,
-      default: '更多>'
+      default: '更多内容>>'
     },
     cardList: {
       type: Array,
       default: ()=>{
-        return []
+        return [1,2,3,4,5]
       }
     },
   },
@@ -135,6 +143,20 @@ export default {
           .card-left{
             width: 38%;
             height: 126px;
+            position: relative;
+             .mark{
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 40%;
+              height: 30px;
+              border-radius: 15px 0;
+              background: linear-gradient(#1678D3,#1B97EE);
+              color: #fff;
+              justify-content: center;
+              display: flex;
+              align-items: center;
+            }
            img{
               max-width: 100%;
               height: 100%;
@@ -146,6 +168,18 @@ export default {
             .right-title{
               font-size: 16px;
               margin-bottom: 30px;
+            }
+            .tags-content{
+              span{
+                padding:0 7px 0 7px;
+                background: #d5ecfd;
+                color: #1B97EE;
+                border-radius: 2px;
+                margin-right: 10px;
+                &:last-child{
+                  margin-right: 0;
+                }
+              }
             }
             .info{
               font-size: 14x;

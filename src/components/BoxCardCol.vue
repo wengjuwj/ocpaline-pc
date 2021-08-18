@@ -5,7 +5,7 @@
         <div class="more">{{more}}</div>
       </div>
       <div class="card-area">
-          <div class="card-item" v-for="c in 8" :key="c">
+          <div class="card-item" v-for="(item,index) in cardList" :key="index">
           <el-card :body-style="{ padding: '0px' }">
             <div class="img-wrap">
               <img :src="require('@/assets/card.png')" class="image">
@@ -56,7 +56,7 @@ export default {
     cardList: {
       type: Array,
       default: ()=>{
-        return []
+        return [1,2,3,4]
       }
     },
   },

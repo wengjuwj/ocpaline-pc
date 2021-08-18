@@ -1,46 +1,52 @@
 <template>
-  <div class="pc-full-contain footer-contain">
-    <div class="pc-contain">
-      <div class="pc-footer-top">
-          <div class="footer-top-logo">
-            <el-image
-            :src="require('@/assets/footlog.png')"
-            fit="contian"></el-image>
-          </div>
-          <!--  -->
-          <div class="pc-footer-right">
-              <span>24小时服务热线: 15618292428</span>
-          </div>
+  <div class="pc-full-contain">
+    <div class="footer-contain">
+      <div class="pc-contain">
+        <div class="pc-footer-top">
+            <div class="footer-top-logo">
+              <el-image
+              :src="require('@/assets/footlog.png')"
+              fit="contian"></el-image>
+            </div>
+            <!--  -->
+            <div class="pc-footer-right">
+                <span>24小时服务热线: 15618292428</span>
+            </div>
+        </div>
+        <!--  -->
+        <div class="pc-footer-contain">
+            <div class="footer-contain-left">
+              <!-- link box -->
+              <div class="link-box">
+                  <span class="link-item" v-for="(item,index) in footerLink" :key="index" @click="link(item)"> 
+                    <span>{{item.text}}</span>
+                  </span>
+              </div>
+              <!-- adress box -->
+              <div class="address-box">
+                <span>地址: 上海市徐汇区中山西路2025号2405室</span>
+                <span>/</span>
+                <span>电话: 021-60390780</span>
+              </div>
+              <!-- copyright box -->
+              <div class="copyright-box">
+                <span>Copyright: 2016-2027</span>
+                <span>古麻今醉</span>
+                <span><a href="http://">沪ICP备17029187号</a></span>
+                <router-link to='/live'><a>popop</a></router-link>
+              </div>
+            </div>
+            <div class="footer-contain-right">
+              <el-image
+              :src="require('@/assets/code.png')"
+              fit="contian"></el-image>
+            </div>
+        </div>
       </div>
-      <!--  -->
-      <div class="pc-footer-contain">
-          <div class="footer-contain-left">
-            <!-- link box -->
-            <div class="link-box">
-                <span class="link-item" v-for="(item,index) in footerLink" :key="index" @click="link(item)"> 
-                  <span>{{item.text}}</span>
-                </span>
-            </div>
-            <!-- adress box -->
-            <div class="address-box">
-              <span>地址: 上海市徐汇区中山西路2025号2405室</span>
-              <span>/</span>
-              <span>电话: 021-60390780</span>
-            </div>
-            <!-- copyright box -->
-            <div class="copyright-box">
-              <span>Copyright: 2016-2027</span>
-              <span>古麻今醉</span>
-              <span><a href="http://">沪ICP备17029187号</a></span>
-              <router-link to='/live'><a>popop</a></router-link>
-            </div>
-          </div>
-          <div class="footer-contain-right">
-            <el-image
-            :src="require('@/assets/code.png')"
-            fit="contian"></el-image>
-          </div>
-      </div>
+    </div>
+    <!-- copy-right -->
+    <div class="copy-right">
+      Copyright: 2016-2027 上海市志佑医学信息科技有限公司版权所有 <a href="http://">沪ICP备17029187号</a> 
     </div>
   </div>
 </template>
@@ -134,6 +140,17 @@ export default {
         }
       }
 
+    }
+  }
+  // copy right
+  .copy-right{
+    width: 100%;
+    background: #3D5061;
+    text-align: center;
+    padding: 6px 0;
+    color: #fff;
+    a{
+      color: #fff;
     }
   }
 </style>
