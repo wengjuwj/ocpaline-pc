@@ -1,6 +1,7 @@
 import VueRouter from 'vue-router'
 import Vue from 'vue'
-import Layout from '@/layouts/Layout'
+import LayoutPC from '@/layouts/LayoutPC'
+import LayoutH5 from '@/layouts/LayoutH5'
 
 
 Vue.use(VueRouter);
@@ -8,13 +9,13 @@ const routes=[
   {
     path:'/',
     name:'layout',
-    component:Layout,
+    component:LayoutPC,
     redirect: '/index',
     children:[
       {
         path:'/index',
         name: 'index',
-        component: () => import('@/views/Index.vue') ,
+        component: () => import('@/views/pc/Index.vue') ,
         meta:{
           title:"首页",
           showheader:false
@@ -23,7 +24,7 @@ const routes=[
       {
         path:'/special',
         name: 'special',
-        component: () => import('@/views/Special.vue') ,
+        component: () => import('@/views/pc/Special.vue') ,
         meta:{
           title:"专栏",
           showheader:true
@@ -32,7 +33,7 @@ const routes=[
       {
         path:'/newKnowledge',
         name: 'newKnowledge',
-        component: () => import('@/views/NewKnowledge.vue') ,
+        component: () => import('@/views/pc/NewKnowledge.vue') ,
         meta:{
           title:"应用新知",
           showheader:true
@@ -41,7 +42,7 @@ const routes=[
       {
         path:'/news',
         name: 'news',
-        component: () => import('@/views/News.vue') ,
+        component: () => import('@/views/pc/News.vue') ,
         meta:{
           title:"行业资讯",
           showheader:true
@@ -50,7 +51,7 @@ const routes=[
       {
         path:'/recorded',
         name: 'recorded',
-        component: () => import('@/views/Recorded.vue') ,
+        component: () => import('@/views/pc/Recorded.vue') ,
         meta:{
           title:"录播",
           showheader:true
@@ -59,7 +60,7 @@ const routes=[
       {
         path:'/direact',
         name: 'direact',
-        component: () => import('@/views/DireactTelecast.vue') ,
+        component: () => import('@/views/pc/DireactTelecast.vue') ,
         meta:{
           title:"直播",
           showheader:true
@@ -68,7 +69,7 @@ const routes=[
       {
         path:'/direactmore',
         name: 'direactmore',
-        component: () => import('@/views/DireactMore.vue') ,
+        component: () => import('@/views/pc/DireactMore.vue') ,
         meta:{
           title:"直播-更多",
           showheader:true
@@ -77,7 +78,7 @@ const routes=[
       {
         path:'/searchlist',
         name: 'searchlist',
-        component: () => import('@/views/SearchList.vue') ,
+        component: () => import('@/views/pc/SearchList.vue') ,
         meta:{
           title:"搜索结果",
           showheader:true
@@ -85,6 +86,38 @@ const routes=[
       },
     ]
   },
+  {
+    path:'/h5',
+    name:'layout',
+    component:LayoutH5,
+    redirect: '/h5/index',
+    children:[
+      {
+        path:'/h5/index',
+        name: 'h5index',
+        component: () => import('@/views/h5/Index.vue') ,
+        meta:{
+          title:"直播"
+        }
+      },
+      {
+        path:'/h5/advance',
+        name: 'advance',
+        component: () => import('@/views/h5/Advance.vue') ,
+        meta:{
+          title:"直播预告"
+        }
+      },
+      {
+        path:'/h5/advancedetail',
+        name: 'advancedetail',
+        component: () => import('@/views/h5/AdvanceDetail.vue') ,
+        meta:{
+          title:"直播预告"
+        }
+      },
+    ]
+  }
   
 ];
 

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {getTestInfo} from '@/api/test.js'
+import {getTestInfo} from '@/api/pc/test.js'
 export default {
   data(){
     return{

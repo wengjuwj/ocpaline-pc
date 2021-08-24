@@ -48,9 +48,9 @@
 </template>
 
 <script>
-import {getClassification} from '@/api/index'
-import BoxCardCol from '@/components/BoxCardCol'
-import BoxCardLine from '@/components/BoxCardLine'
+import {getClassification} from '@/api/pc/index'
+import BoxCardCol from '@/components/pc/BoxCardCol'
+import BoxCardLine from '@/components/pc/BoxCardLine'
 
 export default {
     name:'index',

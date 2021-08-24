@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import BoxCardCol from '@/components/BoxCardCol'
-import BoxCardLine from '@/components/BoxCardLine'
+import BoxCardCol from '@/components/pc/BoxCardCol'
+import BoxCardLine from '@/components/pc/BoxCardLine'
 export default {
   name:"direactmore",
   components:{

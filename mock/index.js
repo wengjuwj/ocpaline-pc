@@ -1,10 +1,14 @@
 const Mock = require('mockjs')
 const { param2Obj } = require('./utils')
 
-const user = require('./user')
+const user = require('./pc/user')
+const classfification = require('./h5/classfification')
+const livelist = require('./h5/livelist')
 
 const mocks = [
   ...user,
+  ...classfification,
+  ...livelist,
 ]
 
 // for front mock

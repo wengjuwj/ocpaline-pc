@@ -34,8 +34,8 @@
 </template>
 
 <script>
-import SearchBar from "@/components/SearchBar.vue"
-import SearchBarNobg from "@/components/SearchBarNobg.vue"
+import SearchBar from "@/components/pc/SearchBar.vue"
+import SearchBarNobg from "@/components/pc/SearchBarNobg.vue"
 export default {
   components:{
     SearchBar,

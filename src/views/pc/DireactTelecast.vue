@@ -191,7 +191,7 @@
 </template>
 
 <script>
-import SearchBar from '@/components/SearchBar.vue'
+import SearchBar from '@/components/pc/SearchBar.vue'
 export default {
     name:'direact',
     components:{

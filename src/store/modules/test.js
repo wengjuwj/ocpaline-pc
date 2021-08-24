@@ -1,5 +1,4 @@
 import storage from 'store'
-import {getTestInfo} from '@/api/test'
 
 const test={
   state:{

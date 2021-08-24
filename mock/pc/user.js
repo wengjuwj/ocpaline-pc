@@ -26,7 +26,7 @@ for(let i=0;i<6;i++){
 module.exports = [
   // user login
   {
-    url: '/test/classification',
+    url: '/test/classificationpc',
     type: 'get',
     response: config => {
       console.log('走进了接口mock', '')
