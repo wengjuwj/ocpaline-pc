@@ -1,6 +1,6 @@
 <template>
   <div class="pc-layout">
-      <Header v-if="$route.meta.showheader"></Header>
+      <Header  :componentName="$route.name" v-if="$route.meta.showheader"></Header>
       <div class="container">
         <router-view></router-view>
       </div>

@@ -2,34 +2,31 @@
   <div class="classification-area">
       <div class="classification-title" v-if="titleShow">
         <div>{{title}}</div>
-        <div class="more">{{more}}</div>
+        <div class="more" @click="moreEmit">{{more}}</div>
       </div>
       <div class="card-area">
           <div class="card-item" v-for="(item,index) in cardList" :key="index">
           <el-card :body-style="{ padding: '0px' }">
-            <div class="img-wrap">
-              <img :src="require('@/assets/card.png')" class="image">
-              <div class="mark" v-if="c==1">
-                  <div>正在直播</div>
-              </div>
-            </div>
-            
-            <div class="content-wrap">
-              <span class="title">慢性咳嗽与呼吸道感染诊治高峰论坛</span>
-              <div class="bottom clearfix">
-                  <div class="professor">
-                    参会专家：
-                    <span>111</span>
-                    <i class="el-icon-arrow-down" />
-                    
+            <div @click="cardEmit">
+              <div class="img-wrap" @click.stop="imgEmit">
+                  <img :src="require('@/assets/card.png')" class="image">
+                  <div class="mark" v-if="c==1">
+                      <div>正在直播</div>
                   </div>
-                  <div>直播时间：<span>2021-07-16-12:30</span></div>
-                  
-              </div>
-            </div>
-            <!-- 弹出层 -->
-            <div class="card-layer">
+                </div>
                 
+                <div class="content-wrap">
+                  <span class="title" @click.stop="titleEmit">慢性咳嗽与呼吸道感染诊治高峰论坛</span>
+                  <div class="bottom clearfix">
+                      <div class="tags-content">
+                        <span @click.stop="tagsEmit">专家</span>
+                        <span>宣讲</span>
+                        <span>手术</span>
+                      </div>
+                      <div class="time">直播时间：<span>2021-07-16-12:30</span></div>
+                      
+                  </div>
+                </div>
             </div>
           </el-card>
           </div>
@@ -39,10 +36,10 @@
 
 <script>
 export default {
-  name:"",
+  name:"cardcol",
   props:{
     titleShow:{
-      type:String,
+      type:Boolean,
       default:true
     },
     title: {
@@ -69,7 +66,21 @@ export default {
     }
   },
   methods:{
-
+    moreEmit(){
+      this.$emit("moretap")
+    },
+    cardEmit(){
+      this.$emit("cardtap")
+    },
+    imgEmit(){
+      this.$emit("imgtap")
+    },
+    titleEmit(){
+      this.$emit("titletap")
+    },
+    tagsEmit(){
+      this.$emit("tagtap")
+    }
   }
 }
 </script>
@@ -136,10 +147,22 @@ export default {
             font-size: 14px;
             color: #999;
             margin-top: 10px;
-            .professor{
-              margin: 5px 0;
-              position: relative;
+            .tags-content{
+              span{
+                padding:0 7px 0 7px;
+                background: #d5ecfd;
+                color: #1B97EE;
+                border-radius: 2px;
+                margin-right: 10px;
+                &:last-child{
+                  margin-right: 0;
+                }
+              }
             }
+            .time{
+              margin-top: 10px;
+            }
+
             span{
               margin-right: 6px;
             }
@@ -173,10 +196,5 @@ export default {
           }
         }
       }
-    }
-    // 卡片弹出层
-    .card-layer{
-      width: 100%;
-      padding: 16px;
     }
 </style>

@@ -41,8 +41,8 @@
               </div>
             </div>
         </div>
-        <BoxCardLine title="近期直播"></BoxCardLine>
-        <BoxCardCol title="往期回看"></BoxCardCol>
+        <BoxCardLine title="近期直播" @moretap="moretap"></BoxCardLine>
+        <BoxCardCol title="往期回看" @moretap="moretap"></BoxCardCol>
      </div>
   </div>
 </template>
@@ -104,6 +104,9 @@ export default {
         getClassification({}).then(response => {
           console.log('response', response)
         })
+      },
+      moretap(){
+        this.$router.push('/direactmore')
       }
     }
 }

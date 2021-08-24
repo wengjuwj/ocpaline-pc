@@ -62,7 +62,25 @@ const routes=[
         component: () => import('@/views/DireactTelecast.vue') ,
         meta:{
           title:"直播",
-          showheader:false
+          showheader:true
+        }
+      },
+      {
+        path:'/direactmore',
+        name: 'direactmore',
+        component: () => import('@/views/DireactMore.vue') ,
+        meta:{
+          title:"直播-更多",
+          showheader:true
+        }
+      },
+      {
+        path:'/searchlist',
+        name: 'searchlist',
+        component: () => import('@/views/SearchList.vue') ,
+        meta:{
+          title:"搜索结果",
+          showheader:true
         }
       },
     ]

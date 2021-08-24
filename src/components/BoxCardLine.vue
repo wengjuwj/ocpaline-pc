@@ -1,23 +1,23 @@
 <template>
   <div class="advance">
-      <div class="classification-title">
+      <div class="classification-title" v-if="titleShow">
         <div>{{title}}</div>
-        <div class="more">{{more}}</div>
+        <div class="more" @click="moreEmit">{{more}}</div>
       </div>
       <div class="card-area">
           <div class="card-item" v-for="(item,index) in cardList" :key="index">
           <el-card :body-style="{ padding: '0px' }">
-              <div class="card-selfdefine"> 
-                <div class="card-left">
+              <div class="card-selfdefine" @click="cardEmit"> 
+                <div class="card-left" @click.stop="imgEmit">
                   <img alt="" :src="require('@/assets/card1.png')">
                   <div class="mark" v-if="c==1">
                       <div>今日直播</div>
                   </div>
                 </div>
                 <div class="card-right">
-                    <div class="right-title">针对治好强直性脊柱炎的关键点剖析</div>
+                    <div class="right-title" @click.stop="titleEmit">针对治好强直性脊柱炎的关键点剖析</div>
                     <div class="tags-content">
-                      <span>专家</span>
+                      <span @click.stop="tagsEmit">专家</span>
                       <span>宣讲</span>
                       <span>手术</span>
                     </div>
@@ -33,10 +33,10 @@
 
 <script>
 export default {
-  name:"",
+  name:"cardline",
   props:{
     titleShow:{
-      type:String,
+      type:Boolean,
       default:true
     },
     title: {
@@ -63,7 +63,21 @@ export default {
     }
   },
   methods:{
-
+    moreEmit(){
+      this.$emit("moretap")
+    },
+    cardEmit(){
+      this.$emit("cardtap")
+    },
+    imgEmit(){
+      this.$emit("imgtap")
+    },
+    titleEmit(){
+      this.$emit("titletap")
+    },
+    tagsEmit(){
+      this.$emit("tagtap")
+    }
   }
 }
 </script>

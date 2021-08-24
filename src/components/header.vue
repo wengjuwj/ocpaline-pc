@@ -1,5 +1,5 @@
 <template>
- <div class="pc-full-contain">
+ <div class="pc-full-contain" :class="[componentName=='searchlist'?'':'full-bg']">
     <div class="pc-contain">
       <div class="pc-header-top">
         <div class="pc-header-logo">
@@ -8,9 +8,12 @@
           fit="contian"></el-image>
         </div>
         <div class="pc-header-between">
-          <el-image
+          <SearchBarNobg v-if="componentName=='searchlist'"></SearchBarNobg>
+          <SearchBar v-else></SearchBar>
+          
+          <!-- <el-image
           :src="require('@/assets/header_title.png')"
-          fit="contian"></el-image>
+          fit="contian"></el-image> -->
         </div>
         <!-- 右边 -->
         <!-- <div class="pc-header-right">
@@ -31,9 +34,18 @@
 </template>
 
 <script>
+import SearchBar from "@/components/SearchBar.vue"
+import SearchBarNobg from "@/components/SearchBarNobg.vue"
 export default {
   components:{
-
+    SearchBar,
+    SearchBarNobg
+  },
+  props:{
+    componentName:{
+      default:"",
+      type:String
+    }
   },
   data(){
     return{
@@ -92,8 +104,10 @@ export default {
 
 <style lang="less" scoped>
   .pc-full-contain{
-    background: url('~@/assets/header_bg.png') no-repeat;
-    background-size: 100% 100%;
+    &.full-bg{
+      background: url('~@/assets/header_bg.png') no-repeat;
+      background-size: 100% 100%;
+    }
   }
   .pc-header-top{
     display: flex;
@@ -108,7 +122,7 @@ export default {
       }
     }
     .pc-header-between{
-      max-width: 50%;
+      width: 56%;
       margin-left: 25px;
     }
     .pc-header-right{
