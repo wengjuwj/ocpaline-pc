@@ -118,7 +118,7 @@
 
 <script>
 export default {
-  name:'',
+  name:'advancedetail',
   components:{
 
   },

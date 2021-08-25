@@ -19,7 +19,7 @@ import {getLiveList} from '@/api/h5/index'
 import {parseTime} from '@/utils/util'
 
 export default {
-  name:'',
+  name:'advance',
   components:{
     NavBar,
     CardBoxLine

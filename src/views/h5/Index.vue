@@ -15,7 +15,7 @@ import CardBoxLine from '@/components/h5/CardBoxLine'
 import {getClassification,getLiveList} from '@/api/h5/index'
 import {parseTime} from '@/utils/util'
 export default {
-    name:'index',
+    name:'h5index',
     components:{
       Classification,
       CardBoxCol,
